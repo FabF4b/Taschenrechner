@@ -2,11 +2,13 @@ let currentInput = 0;
 let previousInput = 0;
 let operator = " + ";
 let currentResult = 0;
+let resultHistory = 0;
 
 const displayL = document.getElementById("display-L");
 const displayS = document.getElementById("display-S");
 const resultWay = document.getElementById("result-way");
 const resultRes = document.getElementById("result");
+const resultHis = document.getElementById("result-history");
 
 function clickNumber(number) {
   currentInput = currentInput * 10 + number;
@@ -81,19 +83,32 @@ function getResult() {
   }
   resultWay.innerHTML = previousInput + operator + currentInput + " = ";
   resultRes.innerHTML = currentResult;
+  resultHistory =
+    previousInput + operator + currentInput + " = " + currentResult;
   displayS.innerHTML = "";
   currentInput = 0;
   previousInput = 0;
   updateInput();
+  toHistory(resultHistory);
+}
+
+function toHistory(resultHistory) {
+  const newDiv = document.createElement("div");
+  newDiv.classList.add("history");
+  console.log(resultHistory);
+  newDiv.textContent = resultHistory;
+  resultHis.appendChild(newDiv);
 }
 
 function clearAll() {
   currentInput = 0;
   previousInput = 0;
   currentResult = 0;
+  resultHistory = 0;
   resultWay.innerHTML = "";
   resultRes.innerHTML = "";
   displayS.innerHTML = "";
+  resultHis.innerHTML = "";
   updateInput();
 }
 
