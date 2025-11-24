@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taschenrechner</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="display-container">
+        <span class="display-top" id="display-S"></span>
+        <span class="display-top" id="result-way"></span>
+        <span class="display-bottom" id="display-L"></span>
+        <span class="display-bottom" id="result"></span>
+      </div>
+      <div class="calculator-history-container">
+        <div class="calculator">
+          <button class="btn-op" id="clearEntry" onclick="clearEntry()">
+            ce
+          </button>
+          <button class="btn-op" id="clear" onclick="clearAll()">c</button>
+          <button class="btn-op"></button>
+          <button class="btn-op" id="divi" onclick="divi()">÷</button>
+          <button class="btn-num" id="7" onclick="clickNumber(7)">7</button>
+          <button class="btn-num" id="8" onclick="clickNumber(8)">8</button>
+          <button class="btn-num" id="9" onclick="clickNumber(9)">9</button>
+          <button class="btn-op" id="multi" onclick="multi()">×</button>
+          <button class="btn-num" id="4" onclick="clickNumber(4)">4</button>
+          <button class="btn-num" id="5" onclick="clickNumber(5)">5</button>
+          <button class="btn-num" id="6" onclick="clickNumber(6)">6</button>
+          <button class="btn-op" id="minus" onclick="substract(' - ')">
+            -
+          </button>
+          <button class="btn-num" id="1" onclick="clickNumber(1)">1</button>
+          <button class="btn-num" id="2" onclick="clickNumber(2)">2</button>
+          <button class="btn-num" id="3" onclick="clickNumber(3)">3</button>
+          <button class="btn-op" id="plus" onclick="add()">+</button>
+          <button class="btn-op" id="abs" onclick="">±</button>
+          <button class="btn-num" id="0" onclick="clickNumber(0)">0</button>
+          <button class="btn-op" id="comma" onclick="">,</button>
+          <button class="btn-g" onclick="getResult()">=</button>
+        </div>
+        <div class="result-container">
+          <div class="verlauf">Verlauf:</div>
+          <div class="history" id="result-history"></div>
+        </div>
+      </div>
+      <script src="./script.js"></script>
+    </div>
+  </body>
+</html>
