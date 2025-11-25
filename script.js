@@ -72,24 +72,29 @@ function divi() {
 }
 
 function getResult() {
-  if (operator === " + ") {
-    currentResult = previousInput + currentInput;
-  } else if (operator === " - ") {
-    currentResult = previousInput - currentInput;
-  } else if (operator === " * ") {
-    currentResult = previousInput * currentInput;
-  } else if (operator === " / ") {
-    currentResult = previousInput / currentInput;
+  if (previousInput === 0 && currentInput === 0) {
+    currentInput = 0;
+    updateInput();
+  } else {
+    if (operator === " + ") {
+      currentResult = previousInput + currentInput;
+    } else if (operator === " - ") {
+      currentResult = previousInput - currentInput;
+    } else if (operator === " * ") {
+      currentResult = previousInput * currentInput;
+    } else if (operator === " / ") {
+      currentResult = previousInput / currentInput;
+    }
+    resultWay.innerHTML = previousInput + operator + currentInput + " = ";
+    resultRes.innerHTML = currentResult;
+    resultHistory =
+      previousInput + operator + currentInput + " = " + currentResult;
+    displayS.innerHTML = "";
+    currentInput = 0;
+    previousInput = 0;
+    toHistory(resultHistory);
+    updateInput();
   }
-  resultWay.innerHTML = previousInput + operator + currentInput + " = ";
-  resultRes.innerHTML = currentResult;
-  resultHistory =
-    previousInput + operator + currentInput + " = " + currentResult;
-  displayS.innerHTML = "";
-  currentInput = 0;
-  previousInput = 0;
-  updateInput();
-  toHistory(resultHistory);
 }
 
 function toHistory(resultHistory) {
