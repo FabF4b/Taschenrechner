@@ -28,14 +28,18 @@ function performOperator() {
     previousInput = currentInput;
   } else {
     if (operator === " + ") {
-      previousInput = previousInput + currentInput;
+      currentResult = previousInput + currentInput;
     } else if (operator === " - ") {
-      previousInput = previousInput - currentInput;
+      currentResult = previousInput - currentInput;
     } else if (operator === " * ") {
-      previousInput = previousInput * currentInput;
+      currentResult = previousInput * currentInput;
     } else if (operator === " / ") {
-      previousInput = previousInput / currentInput;
+      currentResult = previousInput / currentInput;
     }
+    resultHistory =
+      previousInput + operator + currentInput + " = " + currentResult;
+    toHistory(resultHistory);
+    previousInput = currentResult;
   }
   currentInput = 0;
 }
@@ -52,16 +56,13 @@ function substract() {
   operator = " - ";
   updatePreInput();
   updateInput();
-  console.log(previousInput, currentInput);
 }
 
 function multi() {
   performOperator();
   operator = " * ";
-  console.log(previousInput, currentInput);
   updatePreInput();
   updateInput();
-  console.log(previousInput, currentInput);
 }
 
 function divi() {
@@ -100,9 +101,8 @@ function getResult() {
 function toHistory(resultHistory) {
   const newDiv = document.createElement("div");
   newDiv.classList.add("history");
-  console.log(resultHistory);
   newDiv.textContent = resultHistory;
-  resultHis.appendChild(newDiv);
+  resultHis.prepend(newDiv);
 }
 
 function clearAll() {
